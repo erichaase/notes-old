@@ -12,3 +12,6 @@ web:
   - db:dockerdb
   volumes:
   - .:/app
+  - /app/node_modules
+  environment:
+  - MIX_ENV=dev

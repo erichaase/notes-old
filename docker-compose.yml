@@ -1,0 +1,14 @@
+db:
+  image: kamui/postgresql
+  environment:
+  - POSTGRESQL_DB=phoenix
+  - POSTGRESQL_USER=postgres
+  - POSTGRESQL_PASS=postgres
+web:
+  build: .
+  ports:
+  - "49235:4000"
+  links:
+  - db:dockerdb
+  volumes:
+  - .:/app

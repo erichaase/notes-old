@@ -36,8 +36,9 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :notes, Notes.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "notes_dev",
-  hostname: "localhost",
+  username: System.get_env("DOCKERDB_ENV_POSTGRESQL_USER"),
+  password: System.get_env("DOCKERDB_ENV_POSTGRESQL_PASS"),
+  database: System.get_env("DOCKERDB_ENV_POSTGRESQL_DB"),
+  hostname: System.get_env("DOCKERDB_PORT_5432_TCP_ADDR"),
+  port: System.get_env("DOCKERDB_PORT_5432_TCP_PORT"),
   pool_size: 10

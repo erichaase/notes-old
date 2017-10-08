@@ -13,4 +13,4 @@ RUN mix local.rebar --force
 RUN mix do deps.get, compile
 RUN npm install
 EXPOSE 4000
-CMD ["mix", "phoenix.server"]
+CMD ["mix", "do", "ecto.migrate,", "phoenix.server"]
